@@ -227,3 +227,23 @@ background: linear-gradient(to right, var(--accent-cyan), var(--accent-blue));
     .carousel-item {
         width: 260px;
     }}
+/* Sửa lỗi hiển thị cho phần nội dung text */
+section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: var(--accent-cyan);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-left: 4px solid var(--accent-cyan);
+    padding-left: 15px;
+}
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
