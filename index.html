@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY PORTFOLIO - NG.T HUHU</title>
+    <title>THU HUONG | PORTFOLIO</title>
     <link rel="stylesheet" href="templatemo-prism-flux.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -28,7 +27,8 @@
                     <div class="logo-prism"><div class="prism-shape"></div></div>
                 </div>
                 <span class="logo-text">
-                    <span class="prism">THU</span><span class="flux">HUONG</span>
+                    <span class="prism">THU HUONG</span>
+                    <span class="flux">PORTFOLIO</span>
                 </span>
             </a>
             
@@ -37,6 +37,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#stats" class="nav-link">Achievements</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#passion" class="nav-link">Passion</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             
@@ -46,7 +47,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section with 3D Carousel -->
+    <!-- Hero Section with 3D Carousel (6 Items) -->
     <section class="hero" id="home">
         <div class="carousel-container">
             <div class="carousel" id="carousel">
@@ -60,86 +61,92 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (3 Pillars) -->
     <section class="philosophy-section" id="about">
         <div class="philosophy-container">
             <div class="prism-line"></div>
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 50px; text-align: left; justify-content: center;">
-                <div style="flex: 1; min-width: 300px;">
-                    <img src="huong-doan.jpg" alt="Thu Huong" style="width: 100%; border-radius: 20px; border: 1px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,255,255,0.1);">
+            <h2 class="philosophy-headline">NGUYỄN THỊ THU HƯƠNG</h2>
+            <p class="philosophy-subheading">
+                Global Economics student (K63) with a thing for Data Analysis. 
+                When I'm not diving into charts, I'm catching vibes through my lens or sketching out new designs.
+            </p>
+            
+            <div class="philosophy-pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">🌏</div>
+                    <h3 class="pillar-title">Academic</h3>
+                    <p class="pillar-description">Sophomore International Economics student at Foreign Trade University (FTU).</p>
                 </div>
-                <div style="flex: 1.5; min-width: 300px;">
-                    <h2 class="philosophy-headline" style="text-align: left;">NGUYỄN THỊ THU HƯƠNG</h2>
-                    <p class="philosophy-subheading" style="margin-left: 0; text-align: left;">
-                        Global Economics student with a thing for Data Analysis.
-                        When I'm not diving into charts, I'm catching vibes
-                        through my lens or sketching out new designs.
-                    </p>
-                    <div class="philosophy-pillars">
-                        <div class="pillar">
-                            <div class="pillar-icon">🌏</div>
-                            <h3 class="pillar-title">Academic</h3>
-                            <p class="pillar-description">International Economics student (K63) at Foreign Trade University (FTU)</p>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon">📸</div>
-                            <h3 class="pillar-title">Experience</h3>
-                            <p class="pillar-description">Member Gen 20 Communications Department FTU Youth Union, 2026 student scientific research competition.</p>
-                        </div>
-                    </div>
+                <div class="pillar">
+                    <div class="pillar-icon">📸</div>
+                    <h3 class="pillar-title">Experience</h3>
+                    <p class="pillar-description">Member Gen 20 Communications Department FTU Youth Union, 2026 Student Scientific Research.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🎯</div>
+                    <h3 class="pillar-title">Aspirations</h3>
+                    <p class="pillar-description">Continuous growth in international economics while mastering visual design.</p>
                 </div>
             </div>
+            <div class="philosophy-particles" id="particles"></div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
+    <!-- Achievements Section (Counter Animation) -->
     <section class="stats-section" id="stats">
         <div class="section-header">
             <h2 class="section-title">Outstanding achievements</h2>
-            <p class="section-subtitle">Key highlights and recognitions from my academic and creative journey.</p>
+            <p class="section-subtitle">Key highlights from my academic and creative journey.</p>
         </div>
-        
         <div class="stats-grid">
             <div class="stat-card">
-                <img src="huong-bang-khen.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
                 <div class="stat-icon">📖</div>
-                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-number" data-target="80">0</div>
                 <div class="stat-label">Academic Award</div>
-                <p class="stat-description">City-level History Merit Award (Grade 8, 9), Third Prize in Provincial Mathematics Competition, 2025 Political Essay Award.</p>
+                <p class="stat-description">City-level History Merit Award & Provincial Math Competition prizes.</p>
             </div>
-            
             <div class="stat-card">
-                <img src="su-kien-fyu.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
                 <div class="stat-icon">⚡</div>
                 <div class="stat-number" data-target="100">0</div>
                 <div class="stat-label">Extracurricular</div>
-                <p class="stat-description">Horus Club, Phóng sự Nhập học, Icebreakers 2024, Chạm Tết, Media Sub-leader of Youth Month 2025...</p>
+                <p class="stat-description">FYU, Horus Club, We The Icebreakers, Media Sub-leader Youth Month 2025.</p>
             </div>
-            
+            <div class="stat-card">
+                <div class="stat-icon">🔬</div>
+                <div class="stat-number" data-target="75">0</div>
+                <div class="stat-label">Research</div>
+                <p class="stat-description">Issues related to economic growth and commercial law.</p>
+            </div>
             <div class="stat-card">
                 <div class="stat-icon">💻</div>
                 <div class="stat-number" data-target="100">0</div>
-                <div class="stat-label">technical contribution</div>
-                <p class="stat-description">Co-produce the website <a href="https://project-tin314-gr28.vercel.app/" target="_blank" style="color: var(--accent-cyan);">FTU Internship Hub</a> and Running technical media for events.</p>
+                <div class="stat-label">Technical</div>
+                <p class="stat-description">Co-produced FTU Internship Hub & event media management.</p>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section (5 Categories) -->
     <section class="skills-section" id="skills">
         <div class="skills-container">
             <div class="section-header">
-                <h2 class="section-title">My Skills</h2>
-                <p class="section-subtitle">Equipped with a diverse skill set to navigate the global economy and visual arts.</p>
+                <h2 class="section-title">My Technical Arsenal</h2>
+            </div>
+            <div class="skill-categories">
+                <div class="category-tab active" data-category="all">All Skills</div>
+                <div class="category-tab" data-category="photography">Digital Photography</div>
+                <div class="category-tab" data-category="design">Visual Arts & Design</div>
+                <div class="category-tab" data-category="office">Office Tools</div>
+                <div class="category-tab" data-category="analysis">Data Analysis</div>
             </div>
             <div class="skills-hexagon-grid" id="skillsGrid"></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section (Email, Facebook, Phone, Location) -->
     <section class="contact-section" id="contact">
         <div class="section-header">
-            <h2 class="section-title">Initialize Connection</h2>
+            <h2 class="section-title">Connect with Me</h2>
         </div>
         <div class="contact-container">
             <div class="contact-info">
@@ -151,21 +158,62 @@
                     <div class="info-icon">🌐</div>
                     <div class="info-text"><h4>Facebook</h4><p>Nguyễn T.Hương</p></div>
                 </a>
+                <div class="info-item">
+                    <div class="info-icon">📱</div>
+                    <div class="info-text"><h4>Phone</h4><p>+84 *******197</p></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text"><h4>Location</h4><p>Foreign Trade University, HN</p></div>
+                </div>
             </div>
             <form class="contact-form" id="contactForm">
-                <div class="form-group"><input type="text" name="name" placeholder="Name" required></div>
-                <div class="form-group"><input type="email" name="email" placeholder="Email" required></div>
-                <div class="form-group"><textarea name="message" placeholder="Message" required></textarea></div>
+                <div class="form-group"><input type="text" placeholder="Name" required></div>
+                <div class="form-group"><input type="email" placeholder="Email" required></div>
+                <div class="form-group"><textarea placeholder="Message" required></textarea></div>
                 <button type="submit" class="submit-btn">Transmit Message</button>
             </form>
         </div>
     </section>
 
+    <!-- Footer (Kept as requested) -->
     <footer class="footer">
-        <div class="footer-bottom">
-            <div class="copyright" style="text-align: center; width: 100%;">
-                © 2026 THU HUONG_PORTFOLIO. All rights reserved.
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-text"><span class="prism">THU HUONG</span> <span class="flux">PORTFOLIO</span></span>
+                </div>
+                <p class="footer-description">Turning data into insights and visions into visuals.</p>
             </div>
+            <div class="footer-section">
+                <h4>Expertise</h4>
+                <div class="footer-links">
+                    <a href="#skills">Global Economics</a>
+                    <a href="#skills">Data Analysis</a>
+                    <a href="#skills">Visual Design</a>
+                    <a href="#skills">Photography</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Journey</h4>
+                <div class="footer-links">
+                    <a href="#about">About Me</a>
+                    <a href="#stats">Achievements</a>
+                    <a href="#skills">Skills</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Portfolio</h4>
+                <div class="footer-links">
+                    <a href="#">Research</a>
+                    <a href="#">Photo Gallery</a>
+                    <a href="#">Graphic Works</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 THU HUONG_PORTFOLIO. All rights reserved.</div>
+            <div class="footer-credits">Designed by Thu Huong</div>
         </div>
     </footer>
 
