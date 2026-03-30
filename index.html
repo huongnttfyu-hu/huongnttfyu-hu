@@ -59,11 +59,11 @@
         </div>
     </section>
 
-    <!-- About Section (Maintaining FTU/FYU Links) -->
+    <!-- About Section -->
     <section class="philosophy-section" id="about">
         <div class="philosophy-container">
             <div class="prism-line"></div>
-            <h2 class="philosophy-headline">NGUYEN THI THU HUONG</h2>
+            <h2 class="philosophy-headline">NGUYỄN THỊ THU HƯƠNG</h2>
             <p class="philosophy-subheading">
                 Global Economics student (K63) at Foreign Trade University with a thing for Data Analysis. 
                 When I'm not diving into charts, I'm catching vibes through my lens or sketching out new designs.
@@ -101,7 +101,7 @@
         </div>
     </section>
 
-    <!-- Achievements Section (Maintaining Internship Hub Link) -->
+    <!-- Achievements Section -->
     <section class="stats-section" id="stats">
         <div class="section-header">
             <h2 class="section-title">Outstanding achievements</h2>
@@ -170,17 +170,24 @@
                     <div class="info-text"><h4>Location</h4><p>Foreign Trade University, HN</p></div>
                 </a>
             </div>
-                </div>
-            </div>
+            <!-- Form đã được sửa các thuộc tính ID và NAME -->
             <form class="contact-form" id="contactForm">
-                <div class="form-group"><input type="text" placeholder="Name" required></div>
-                <div class="form-group"><input type="email" placeholder="Email" required></div>
-                <div class="form-group"><textarea placeholder="Message" required></textarea></div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
                 <button type="submit" class="submit-btn">Transmit Message</button>
             </form>
         </div>
     </section>
-
     <!-- Footer (Kept as requested) -->
     <footer class="footer">
         <div class="footer-content">

@@ -1,4 +1,3 @@
-// Carousel Data - 6 Items
 const portfolioData = [
     { id: 1, title: 'FTU Youth Union', description: 'Communications Department Gen 20.', image: 'images/huong-doan.jpg', tech: ['FYU', 'MEDIA'] },
     { id: 2, title: 'Visual Creator', description: 'Catching magic in every frame.', image: 'images/huong-camera.jpg', tech: ['ARTS', 'CAMERA'] },
@@ -8,7 +7,6 @@ const portfolioData = [
     { id: 6, title: 'Event Control', description: 'Running technical media for big events.', image: 'images/su-kien-fyu.jpg', tech: ['TECH', 'LIVE'] }
 ];
 
-// Skills Data - 5 Categories
 const skillsData = [
     { name: 'Photography', icon: '📷', level: 95, category: 'photography' },
     { name: 'Video Shooting', icon: '🎥', level: 90, category: 'photography' },
@@ -66,7 +64,6 @@ function updateCarousel() {
         
         const absOffset = Math.abs(offset);
         
-        // THU HẸP KHOẢNG CÁCH: Chỉnh xuống 380px cho gọn gàng
         const translateX = offset * 380; 
         const translateZ = -absOffset * 250;
         const rotateY = -offset * 35;
@@ -144,4 +141,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nextBtn').addEventListener('click', () => { currentIndex = (currentIndex + 1) % portfolioData.length; updateCarousel(); resetAutoPlay(); });
     document.getElementById('prevBtn').addEventListener('click', () => { currentIndex = (currentIndex - 1 + portfolioData.length) % portfolioData.length; updateCarousel(); resetAutoPlay(); });
     setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1000);
+
+    // Xử lý Form Submission (Đã khôi phục)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) { // Đảm bảo form tồn tại trước khi thêm event listener
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Ngăn chặn hành vi gửi form mặc định (tải lại trang)
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            alert(`Thank you, ${name}! Your message has been transmitted successfully. We'll get back to you soon.`);
+            
+            contactForm.reset(); // Reset form sau khi gửi
+        });
+    }
 });
