@@ -1,12 +1,14 @@
+// Carousel Data - 6 Items
 const portfolioData = [
     { id: 1, title: 'FTU Youth Union', description: 'Communications Department Gen 20.', image: 'images/huong-doan.jpg', tech: ['FYU', 'MEDIA'] },
     { id: 2, title: 'Visual Creator', description: 'Catching magic in every frame.', image: 'images/huong-camera.jpg', tech: ['ARTS', 'CAMERA'] },
-    { id: 3, title: 'Academic Honors', description: 'Merit awards & Essay winner.', image: 'images/huong-bang-khen.jpg', tech: ['AWARD', 'K63'] },
-    { id: 4, title: 'Student Identity', description: 'Sophomore at Foreign Trade University.', image: 'images/ftu-logo-ao.jpg', tech: ['ECONOMICS', 'FTU'] },
-    { id: 5, title: 'Graphic Design', description: 'Poster design for national events.', image: 'images/thiet-ke-poster.jpg', tech: ['ADOBE', 'DESIGN'] },
-    { id: 6, title: 'Event Control', description: 'Running technical media for live events.', image: 'images/su-kien-fyu.jpg', tech: ['TECH', 'LIVE'] }
+    { id: 3, title: 'Academic Honors', description: 'Merit awards & Essay contest winner.', image: 'images/huong-bang-khen.jpg', tech: ['AWARD', 'K63'] },
+    { id: 4, title: 'Student Identity', description: 'Proud sophomore at Foreign Trade University.', image: 'images/ftu-logo-ao.jpg', tech: ['ECONOMICS', 'FTU'] },
+    { id: 5, title: 'Graphic Design', description: 'Poster design for national anniversaries.', image: 'images/thiet-ke-poster.jpg', tech: ['ADOBE', 'DESIGN'] },
+    { id: 6, title: 'Event Control', description: 'Running technical media for big events.', image: 'images/su-kien-fyu.jpg', tech: ['TECH', 'LIVE'] }
 ];
 
+// Skills Data - 5 Categories
 const skillsData = [
     { name: 'Photography', icon: '📷', level: 95, category: 'photography' },
     { name: 'Video Shooting', icon: '🎥', level: 90, category: 'photography' },
@@ -64,8 +66,8 @@ function updateCarousel() {
         
         const absOffset = Math.abs(offset);
         
-        // KHOẢNG CÁCH: Sửa từ 450px xuống 390px để các card sát lại gần nhau hơn
-        const translateX = offset * 390; 
+        // THU HẸP KHOẢNG CÁCH: Chỉnh xuống 380px cho gọn gàng
+        const translateX = offset * 380; 
         const translateZ = -absOffset * 250;
         const rotateY = -offset * 35;
         const opacity = absOffset > 2 ? 0 : 1 - (absOffset * 0.3);
@@ -78,12 +80,11 @@ function updateCarousel() {
     document.querySelectorAll('.indicator').forEach((ind, i) => ind.classList.toggle('active', i === currentIndex));
 }
 
-// TỰ ĐỘNG CHUYỂN ẢNH (Auto-play)
 function startAutoPlay() {
     autoPlayInterval = setInterval(() => {
         currentIndex = (currentIndex + 1) % portfolioData.length;
         updateCarousel();
-    }, 4000); // 4 giây chuyển 1 lần
+    }, 4500); // 4.5 giây tự chuyển ảnh
 }
 
 function resetAutoPlay() {
@@ -116,9 +117,30 @@ function initSkillsGrid() {
     display();
 }
 
+function initStats() {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.stat-number').forEach(num => {
+                    const target = +num.dataset.target;
+                    let curr = 0;
+                    const update = () => {
+                        curr += target/50;
+                        if (curr < target) { num.innerText = Math.ceil(curr); setTimeout(update, 30); }
+                        else num.innerText = target;
+                    };
+                    update();
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+    observer.observe(document.querySelector('.stats-section'));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     initSkillsGrid();
+    initStats();
     document.getElementById('nextBtn').addEventListener('click', () => { currentIndex = (currentIndex + 1) % portfolioData.length; updateCarousel(); resetAutoPlay(); });
     document.getElementById('prevBtn').addEventListener('click', () => { currentIndex = (currentIndex - 1 + portfolioData.length) % portfolioData.length; updateCarousel(); resetAutoPlay(); });
     setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1000);

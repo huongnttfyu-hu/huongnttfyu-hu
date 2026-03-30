@@ -8,17 +8,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Loading Screen -->
     <div class="loader" id="loader">
         <div class="loader-content">
-            <div class="loader-prism"><div class="prism-face"></div><div class="prism-face"></div><div class="prism-face"></div></div>
+            <div class="loader-prism">
+                <div class="prism-face"></div>
+                <div class="prism-face"></div>
+                <div class="prism-face"></div>
+            </div>
+            <div style="color: var(--accent-purple); font-size: 18px; text-transform: uppercase; letter-spacing: 3px;">Refracting Reality...</div>
         </div>
     </div>
 
+    <!-- Navigation Header -->
     <header class="header" id="header">
         <nav class="nav-container">
             <a href="#home" class="logo">
-                <span class="logo-text"><span class="prism">THU</span><span class="flux">HUONG</span></span>
+                <div class="logo-icon">
+                    <div class="logo-prism"><div class="prism-shape"></div></div>
+                </div>
+                <span class="logo-text">
+                    <span class="prism">THU HUONG</span>
+                    <span class="flux">PORTFOLIO</span>
+                </span>
             </a>
+            
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -26,10 +40,14 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </div>
         </nav>
     </header>
 
+    <!-- Hero Section (6 items, Auto-playing) -->
     <section class="hero" id="home">
         <div class="carousel-container">
             <div class="carousel" id="carousel"></div>
@@ -41,35 +59,49 @@
         </div>
     </section>
 
+    <!-- About Section (Maintaining FTU/FYU Links) -->
     <section class="philosophy-section" id="about">
         <div class="philosophy-container">
             <div class="prism-line"></div>
-            <h2 class="philosophy-headline">NGUYỄN THỊ THU HƯƠNG</h2>
+            <h2 class="philosophy-headline">NGUYEN THI THU HUONG</h2>
             <p class="philosophy-subheading">
                 Global Economics student (K63) at Foreign Trade University with a thing for Data Analysis. 
-                When I'm not diving into charts, I'm catching vibes through my lens.
+                When I'm not diving into charts, I'm catching vibes through my lens or sketching out new designs.
             </p>
+            
             <div class="philosophy-pillars">
                 <div class="pillar">
                     <div class="pillar-icon">🌏</div>
                     <h3 class="pillar-title">Academic</h3>
-                    <p class="pillar-description">International Economics - FTU.</p>
+                    <p class="pillar-description">
+                        2nd-year International Economics student at 
+                        <a href="https://www.ftu.edu.vn/" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">Foreign Trade University (FTU)</a>
+                    </p>
                 </div>
+                
                 <div class="pillar">
                     <div class="pillar-icon">📸</div>
                     <h3 class="pillar-title">Experience</h3>
-                    <p class="pillar-description">FYU Communications Department.</p>
+                    <p class="pillar-description">
+                        Member Gen 20 Communications Department 
+                        <a href="https://www.facebook.com/FYU.HN" rel="nofollow" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">FTU Youth Union</a>, 
+                        2026 student scientific research competition.
+                    </p>
                 </div>
+                
                 <div class="pillar">
                     <div class="pillar-icon">🎯</div>
                     <h3 class="pillar-title">Aspirations</h3>
-                    <p class="pillar-description">Mastering Data & Visual Design.</p>
+                    <p class="pillar-description">
+                        Dedicated to continuous growth in international economics while mastering the art of visual design.
+                    </p>
                 </div>
             </div>
             <div class="philosophy-particles" id="particles"></div>
         </div>
     </section>
 
+    <!-- Achievements Section (Maintaining Internship Hub Link) -->
     <section class="stats-section" id="stats">
         <div class="section-header">
             <h2 class="section-title">Outstanding achievements</h2>
@@ -79,25 +111,32 @@
                 <div class="stat-icon">📖</div>
                 <div class="stat-number" data-target="80">0</div>
                 <div class="stat-label">Academic Award</div>
+                <p class="stat-description">City-level History Merit Award & Provincial Mathematics prizes.</p>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">⚡</div>
                 <div class="stat-number" data-target="100">0</div>
                 <div class="stat-label">Extracurricular</div>
+                <p class="stat-description">FYU, Horus Club, Icebreakers, Media Sub-leader of Youth Month 2025.</p>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">🔬</div>
                 <div class="stat-number" data-target="75">0</div>
                 <div class="stat-label">Research</div>
+                <p class="stat-description">Economic growth and commercial law research.</p>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">💻</div>
                 <div class="stat-number" data-target="100">0</div>
                 <div class="stat-label">Technical</div>
+                <p class="stat-description">
+                    Co-produced <a href="https://project-tin314-gr28.vercel.app/" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">FTU Internship Hub</a> website.
+                </p>
             </div>
         </div>
     </section>
 
+    <!-- Skills Section (5 Categories) -->
     <section class="skills-section" id="skills">
         <div class="skills-container">
             <div class="section-header"><h2 class="section-title">My Skills</h2></div>
@@ -112,6 +151,7 @@
         </div>
     </section>
 
+    <!-- Contact Section (Maintaining Facebook Link) -->
     <section class="contact-section" id="contact">
         <div class="section-header"><h2 class="section-title">Connect</h2></div>
         <div class="contact-container">
@@ -125,12 +165,15 @@
                     <div class="info-text"><h4>Facebook</h4><p>Nguyễn T.Hương</p></div>
                 </a>
                 <div class="info-item"><div class="info-icon">📱</div><div class="info-text"><h4>Phone</h4><p>+84 *******197</p></div></div>
-                <div class="info-item"><div class="info-icon">📍</div><div class="info-text"><h4>Location</h4><p>Foreign Trade University, HN</p></div></div>
+                <a href="https://maps.app.goo.gl/nB9daL5hjxnXwf9PA" target="_blank" class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text"><h4>Location</h4><p>Foreign Trade University, HN</p></div>
+                </a>
             </div>
             <form class="contact-form" id="contactForm">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" required></textarea>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
                 <button type="submit" class="submit-btn">Transmit Message</button>
             </form>
         </div>
