@@ -1,14 +1,12 @@
-// 1. Dữ liệu Carousel - Đã sửa đường dẫn folder images/
 const portfolioData = [
     { id: 1, title: 'FTU Youth Union', description: 'Communications Department Gen 20.', image: 'images/huong-doan.jpg', tech: ['FYU', 'MEDIA'] },
     { id: 2, title: 'Visual Creator', description: 'Catching magic in every frame.', image: 'images/huong-camera.jpg', tech: ['ARTS', 'CAMERA'] },
-    { id: 3, title: 'Academic Honors', description: 'Merit awards & Essay writing contest winner.', image: 'images/huong-bang-khen.jpg', tech: ['AWARD', 'K63'] },
-    { id: 4, title: 'Student Identity', description: 'Proud sophomore at Foreign Trade University.', image: 'images/ftu-logo-ao.jpg', tech: ['ECONOMICS', 'FTU'] },
-    { id: 5, title: 'Graphic Design', description: 'Poster design for national anniversaries.', image: 'images/thiet-ke-poster.jpg', tech: ['ADOBE', 'DESIGN'] },
-    { id: 6, title: 'Event Control', description: 'Running technical media for big events.', image: 'images/su-kien-fyu.jpg', tech: ['TECH', 'LIVE'] }
+    { id: 3, title: 'Academic Honors', description: 'Merit awards & Essay winner.', image: 'images/huong-bang-khen.jpg', tech: ['AWARD', 'K63'] },
+    { id: 4, title: 'Student Identity', description: 'Sophomore at Foreign Trade University.', image: 'images/ftu-logo-ao.jpg', tech: ['ECONOMICS', 'FTU'] },
+    { id: 5, title: 'Graphic Design', description: 'Poster design for national events.', image: 'images/thiet-ke-poster.jpg', tech: ['ADOBE', 'DESIGN'] },
+    { id: 6, title: 'Event Control', description: 'Running technical media for live events.', image: 'images/su-kien-fyu.jpg', tech: ['TECH', 'LIVE'] }
 ];
 
-// 2. Dữ liệu Skills (5 nhóm theo yêu cầu)
 const skillsData = [
     { name: 'Photography', icon: '📷', level: 95, category: 'photography' },
     { name: 'Video Shooting', icon: '🎥', level: 90, category: 'photography' },
@@ -26,12 +24,12 @@ const skillsData = [
 ];
 
 let currentIndex = 0;
+let autoPlayInterval;
 
 function initCarousel() {
     const carousel = document.getElementById('carousel');
     const indicators = document.getElementById('indicators');
-    carousel.innerHTML = '';
-    indicators.innerHTML = '';
+    carousel.innerHTML = ''; indicators.innerHTML = '';
     
     portfolioData.forEach((data, index) => {
         const item = document.createElement('div');
@@ -48,13 +46,13 @@ function initCarousel() {
         
         const ind = document.createElement('div');
         ind.className = 'indicator' + (index === 0 ? ' active' : '');
-        ind.addEventListener('click', () => { currentIndex = index; updateCarousel(); });
+        ind.addEventListener('click', () => { currentIndex = index; updateCarousel(); resetAutoPlay(); });
         indicators.appendChild(ind);
     });
     updateCarousel();
+    startAutoPlay();
 }
 
-// Hàm tính toán vị trí 3D để KHÔNG bị chồng lấn
 function updateCarousel() {
     const items = document.querySelectorAll('.carousel-item');
     const total = items.length;
@@ -66,10 +64,10 @@ function updateCarousel() {
         
         const absOffset = Math.abs(offset);
         
-        // Tăng khoảng cách ngang (translateX) lên 450 để các card không đè nhau
-        const translateX = offset * 450; 
+        // KHOẢNG CÁCH: Sửa từ 450px xuống 390px để các card sát lại gần nhau hơn
+        const translateX = offset * 390; 
         const translateZ = -absOffset * 250;
-        const rotateY = -offset * 40;
+        const rotateY = -offset * 35;
         const opacity = absOffset > 2 ? 0 : 1 - (absOffset * 0.3);
         
         item.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
@@ -77,33 +75,39 @@ function updateCarousel() {
         item.style.zIndex = 10 - absOffset;
     });
 
-    document.querySelectorAll('.indicator').forEach((ind, i) => {
-        ind.classList.toggle('active', i === currentIndex);
-    });
+    document.querySelectorAll('.indicator').forEach((ind, i) => ind.classList.toggle('active', i === currentIndex));
+}
+
+// TỰ ĐỘNG CHUYỂN ẢNH (Auto-play)
+function startAutoPlay() {
+    autoPlayInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % portfolioData.length;
+        updateCarousel();
+    }, 4000); // 4 giây chuyển 1 lần
+}
+
+function resetAutoPlay() {
+    clearInterval(autoPlayInterval);
+    startAutoPlay();
 }
 
 function initSkillsGrid() {
     const grid = document.getElementById('skillsGrid');
     const tabs = document.querySelectorAll('.category-tab');
-    
     function display(cat = 'all') {
         grid.innerHTML = '';
         const filtered = cat === 'all' ? skillsData : skillsData.filter(s => s.category === cat);
         filtered.forEach(s => {
             const hex = document.createElement('div');
             hex.className = 'skill-hexagon';
-            hex.innerHTML = `
-                <div class="hexagon-inner">
-                    <div class="hexagon-content">
-                        <div class="skill-icon-hex">${s.icon}</div>
-                        <div class="skill-name-hex" style="font-size:11px">${s.name}</div>
-                        <div class="skill-level"><div class="skill-level-fill" style="width:${s.level}%"></div></div>
-                    </div>
-                </div>`;
+            hex.innerHTML = `<div class="hexagon-inner"><div class="hexagon-content">
+                <div class="skill-icon-hex">${s.icon}</div>
+                <div class="skill-name-hex" style="font-size:11px">${s.name}</div>
+                <div class="skill-level"><div class="skill-level-fill" style="width:${s.level}%"></div></div>
+            </div></div>`;
             grid.appendChild(hex);
         });
     }
-
     tabs.forEach(t => t.addEventListener('click', () => {
         tabs.forEach(tab => tab.classList.remove('active'));
         t.classList.add('active');
@@ -112,32 +116,10 @@ function initSkillsGrid() {
     display();
 }
 
-// Chạy số thành tựu
-function initStats() {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.querySelectorAll('.stat-number').forEach(num => {
-                    const target = +num.dataset.target;
-                    let curr = 0;
-                    const update = () => {
-                        curr += target/50;
-                        if (curr < target) { num.innerText = Math.ceil(curr); setTimeout(update, 30); }
-                        else num.innerText = target;
-                    };
-                    update();
-                });
-            }
-        });
-    }, { threshold: 0.5 });
-    observer.observe(document.querySelector('.stats-section'));
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     initSkillsGrid();
-    initStats();
-    document.getElementById('nextBtn').addEventListener('click', () => { currentIndex = (currentIndex + 1) % portfolioData.length; updateCarousel(); });
-    document.getElementById('prevBtn').addEventListener('click', () => { currentIndex = (currentIndex - 1 + portfolioData.length) % portfolioData.length; updateCarousel(); });
+    document.getElementById('nextBtn').addEventListener('click', () => { currentIndex = (currentIndex + 1) % portfolioData.length; updateCarousel(); resetAutoPlay(); });
+    document.getElementById('prevBtn').addEventListener('click', () => { currentIndex = (currentIndex - 1 + portfolioData.length) % portfolioData.length; updateCarousel(); resetAutoPlay(); });
     setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1000);
 });
